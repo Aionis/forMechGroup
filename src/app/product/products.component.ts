@@ -9,12 +9,12 @@ import { Product } from '../models/product';
 import { getProducts, getProductLoadingStatus } from '../store/selectors/product.selectors';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss'],
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit{
+export class ProductsComponent implements OnInit{
 
   isCreateMode: Observable<boolean>;
   products = this._store.pipe(select(getProducts));

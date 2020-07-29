@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
+import { ProductsComponent } from './product/products.component';
 import { ProductInterceptor } from './core/interceptors/product.interceptor';
 
 import { LocalStorageModule } from 'angular-2-local-storage';
@@ -21,7 +21,7 @@ import { ProductItemComponent } from './product/products-list/product-item/produ
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
+    ProductsComponent,
     ProductFormComponent,
     ProductsListComponent,
     ProductItemComponent
