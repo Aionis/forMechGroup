@@ -55,7 +55,7 @@ export class ProductInterceptor implements HttpInterceptor {
         this._localStorageService.set('dbMock', products);
         return new HttpResponse({body: products})
       }
-      return products.length ?
+      return products?.length ?
         of(new HttpResponse({ body: products})).pipe(delay(this.delayInt())) :
         from(getDataFromJson.call(this) as Promise<HttpResponse<Product[]>>);
     }
