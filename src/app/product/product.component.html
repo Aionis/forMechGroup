@@ -1,0 +1,32 @@
+
+
+<div class="container">
+  <h1 class="text-center mt-5">Welcome to our test task example!</h1>
+  <h2 class="text-center">What kind of action you want to do?</h2>
+  <div class="row">
+    <div class="col text-center">
+      <button class="btn btn-outline-primary" (click)="onCreate()">Create</button>
+      <button class="btn btn-outline-primary ml-2" (click)="onRead()">Read</button>
+    </div>
+  </div>
+  <div class="row m-1">
+    <div class="col">
+      <app-product-form *ngIf="isCreateMode | async" (productSubmit)="onProductSubmit($event)"></app-product-form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-products-list [products]="products | async"></app-products-list>
+      <div *ngIf="(loadingStatus| async) === 'Loading'" class="d-flex justify-content-center mt-3">
+        <div class="spinner-border" style="width: 5rem; height: 5rem;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

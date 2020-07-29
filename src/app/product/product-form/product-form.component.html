@@ -1,0 +1,33 @@
+<form [formGroup]="productForm" (submit)="onSubmit()" class="m-1">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="name">Product name</label>
+        <input class="form-control" type="text" id="name" formControlName="name">
+        <small *ngIf="productForm.get('name').hasError('required') && !productForm.get('name').pristine" class="form-text text-danger">Name is required</small>
+        <small *ngIf="productForm.get('name').hasError('minlength') && !productForm.get('name').pristine" class="form-text text-danger">Min length is 4</small>
+        <small *ngIf="productForm.get('name').hasError('maxlength') && !productForm.get('name').pristine" class="form-text text-danger">Max length is 10</small>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="price">Product price</label>
+        <input class="form-control" type="number" id="price" formControlName="price">
+        <small *ngIf="productForm.get('price').hasError('required')  && !productForm.get('price').pristine" class="form-text text-danger">Price is required</small>
+        <small *ngIf="productForm.get('price').hasError('max') && !productForm.get('price').pristine" class="form-text text-danger">Max price is 1000000</small>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <label for="countLeft">Product count</label>
+        <input class="form-control" type="number" id="countLeft" formControlName="countLeft">
+        <small *ngIf="productForm.get('countLeft').hasError('required') && !productForm.get('countLeft').pristine" class="form-text text-danger">Count is required</small>
+        <small *ngIf="productForm.get('countLeft').hasError('max') && !productForm.get('countLeft').pristine" class="form-text text-danger">Max count is 100</small>
+      </div>
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary d-block" style="width: 100px" [disabled]="productForm.invalid">Submit</button>
+      <button type="button" class="btn btn-danger mt-1 d-block" style="width: 100px" (click)="onClose()">Close</button>
+    </div>
+  </div>
+</form>
